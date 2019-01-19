@@ -1,6 +1,6 @@
 
 GMAPS_VERSION =
-WORK_DIRECTORY = 
+WORK_DIRECTORY =
 
 build-jupyter:
 	docker build jupyter/ --build-arg GMAPS_VERSION=${GMAPS_VERSION} -t jupyter-gmaps:${GMAPS_VERSION}
