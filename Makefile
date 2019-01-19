@@ -2,6 +2,8 @@
 GMAPS_VERSION =
 WORK_DIRECTORY =
 
+build: build-jupyter build-jupyterlab
+
 build-jupyter:
 	docker build jupyter/ --build-arg GMAPS_VERSION=${GMAPS_VERSION} -t jupyter-gmaps:${GMAPS_VERSION}
 
@@ -14,4 +16,4 @@ build-jupyterlab:
 run-jupyterlab:
 	docker run -p 8888:8888 --volume ${WORK_DIRECTORY}:/home/jovyan/work jupyterlab-gmaps:${GMAPS_VERSION} start.sh jupyter lab
 
-.PHONY: build-jupyter run-jupyter
+.PHONY: build-jupyter run-jupyter build-jupyterlab run-jupyterlab
